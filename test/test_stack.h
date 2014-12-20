@@ -1,7 +1,11 @@
 #ifndef TEST_STACK_H
 #define TEST_STACK_H
 
+#include <string>
+#include <iostream>
+
 #include "../src/stack.h"
+#include "test_helper.h"
 
 using namespace std;
 
@@ -9,6 +13,8 @@ namespace eqsolve
 {
   void test_stack()
   {
+		cout << "Testing stack:" << endl;
+
     stack* s = new stack();
     s->push("5");
     s->push("2");
@@ -17,23 +23,17 @@ namespace eqsolve
     string b = s->peek();
     string c = s->pop();
 
-    cout << "Should print:" << endl;
-    cout << "2 5 5" << endl;
-    cout << "Does print:" << endl;
-    cout << a << " " << b << " " << c << endl;
+    assertTrue("2 should be popped", a == "2");
+    assertTrue("5 should be peeked", b == "5");
+    assertTrue("5 should be popped", c == "5");
 
     s->push("2.4");
     s->push("5.2");
     s->push("+");
 
-    cout << "Should print: " << endl;
-    cout << "+ 5.2 2.4 " << endl;
-    cout << "Does print: " << endl;
+    while(!s->empty()) s->pop();
 
-    while(!s->empty())
-    {
-      cout << s->pop() << " ";
-    }
+		assertTrue("s should be empty", s->empty());
 
     cout << endl;
 

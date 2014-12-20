@@ -1,2 +1,8 @@
 #Ignore gedit backups
 *~
+
+#Ignore object files
+*.o
+
+#ignore test_run executable
+test_run
