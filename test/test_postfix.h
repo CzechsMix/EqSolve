@@ -12,22 +12,22 @@ using namespace std;
 
 namespace eqsolve
 {
-	void test_postfix()
-	{
-		cout << "Testing Postfix:" << endl;
+  void test_postfix()
+  {
+    cout << "Testing Postfix:" << endl;
 
-		stack* postfix = new stack();
+    stack* postfix = new stack();
 
-		postfix->push("+");
-		postfix->push("3");
-		postfix->push("2");
+    postfix->push("+");
+    postfix->push("3");
+    postfix->push("2");
 
-		assertEquals("Equation should return 5", solve_postfix(postfix), 5.0);
+    assertEquals("Equation should return 5", solve_postfix(postfix), 5.0);
 
-		delete postfix;
+    delete postfix;
 
-		cout << endl;
-	}
+    cout << endl;
+  }
 }
 
 #endif //TEST_POSTFIX_H
